@@ -39,18 +39,12 @@ def calculateTime(n):
     # Calculate the time taken to execute the code snippet
     timeTaken = endTime-startTime
 
-    # Logs of values of n, Time taken Programatically and Theoretically which is derived in the project submission
-    print("\nFor n={}".format(n))
-    print("Programatically Time taken = {}".format(timeTaken))
-    print("Theoretically Time taken = {}\n".format((n)*math.log2(n)))  # Theoretical results derived
-
     # Append the values of n, experimental results and theoretical results in their corresponding lists
     nValuesList.append(n)
     experimentalTimeList.append(timeTaken)
     theoreticalTimeList.append((n)*math.log2(n)) # Theoretical results derived
 
 # Function calls for each value on n
-calculateTime(10)
 calculateTime(100)
 calculateTime(1000)
 calculateTime(10000)
@@ -64,8 +58,17 @@ def Average(lst):
 # Deriving scaling/normalizing constant by mean of theoretical results by experimental results
 normalizingConstant = Average(theoreticalTimeList)/Average(experimentalTimeList)
 
+print("\nThe normalizing Constant is ={}".format(normalizingConstant))
+
 # Creating a lnew ist of experimental results by scaling the existing with normalizing constant
 adjustedexperimentalTimeList = [i * normalizingConstant for i in experimentalTimeList]
+
+ # Logs of values of n, Time taken Programatically and Theoretically which is derived in the project submission
+for i,n in enumerate([100,1000,10000,100000,1000000]):
+    print("\nFor n={}".format(n))
+    print("Theoretically Time taken = {}".format(theoreticalTimeList[i]))  # Theoretical results derived
+    print("Programatically Time taken = {}".format(experimentalTimeList[i]))
+    print("Adjusted Programatically Time taken = {}".format(adjustedexperimentalTimeList[i]))
 
 # Plot a line chart to vizualize and compare results from Experimental and Theoretical analysis
 
