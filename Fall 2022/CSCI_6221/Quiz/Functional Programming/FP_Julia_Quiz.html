@@ -1,0 +1,79 @@
+<p><span style="text-decoration: underline; color: #34495e; font-size: 24.0pt;"><strong>High-order Functions in Julia</strong></span></p>
+<p></p>
+<p>Julia supports high-order functions similar to python. In Julia, high-order functions have same syntax as first-class functions. If we do not define any data type of parameter, by default Julia considers it as "Any" data type and we can pass any input to the function. Julia also has several in-build high-order function for implementation such as, filter() and map(). The following code acts as an example for implementation of high-order functions in Julia.&nbsp;</p>
+<p></p>
+<div></div>
+<div>
+<div>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
+<div><strong>Case 1: If a function takes one or more functions as its parameters</strong></div>
+<div>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
+</div>
+<p></p>
+<p>#Define the (<em>High-order</em>) function to compare two functions for single value to return a string</p>
+<p>MaxFunction(fn1::Function, fn2::Function, val) = fn1(val) &gt; fn2(val) ? "Exponential Function is larger " : "Polynomial Function is larger"</p>
+<p></p>
+<p>#Define two functions describing mathematical equations</p>
+<p>ExponentialFunc(x) = 2^x</p>
+<p>PolynomialFunc(x) = x^100</p>
+<p></p>
+<p>#Call the compare function</p>
+<p>MaxFunction( ExponentialFunc, PolynomialFunc, 12)</p>
+<p>MaxFunction( ExponentialFunc, PolynomialFunc, 100)</p>
+<p></p>
+<div></div>
+<div><strong>Output for 1st call: </strong>"Exponential Function is larger "</div>
+<div>
+<div></div>
+<div><strong>Output for 2nd call: </strong>"Polynomial Function is larger"</div>
+<div></div>
+<div></div>
+<div></div>
+<div><strong>Alternately</strong>, we can use the exact code from the example provided in the question</div>
+<div></div>
+<div>
+<p>f(x) = x + 2</p>
+<p>g(x) = 3 *x</p>
+<p>b(x) = f(g(x))</p>
+</div>
+<div></div>
+<div>#Make call</div>
+<div>b(10)</div>
+<div></div>
+<div><strong>Output: </strong>32</div>
+<div></div>
+</div>
+<div>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
+<div><strong>Case 2: If a function returns a function as its result</strong></div>
+<div>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
+<div></div>
+<div>
+<div>#Define a function to convert string in upper case</div>
+<div>ToUpper(val::String) = return uppercase(val)</div>
+<br />
+<div>#Call the Function</div>
+<div>ToUpper("Programming is Fun!")</div>
+<div></div>
+<div></div>
+<div><strong>Output: </strong>"PROGRAMMING IS FUN!"</div>
+<div></div>
+<div></div>
+<div>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
+<div><strong>How to test the Code?</strong></div>
+<div>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
+<div></div>
+<div><strong>1. Easy and Quick way</strong> <strong></strong></div>
+<ul>
+<li>Go to the online IDE: <a href="https://replit.com/">https://replit.com/</a>@logankilpatrick/TryJuliaToday?lite=true</li>
+<li>Click Play button</li>
+<li>You will see Julia REPL ( <em>terminal with something like: <strong><span style="color: #2dc26b;">julia&gt; </span></strong></em><span style="color: #2dc26b;"><span style="color: #000000;">)</span></span></li>
+<li>You can copy entire case 1 and paste it in the IDE, just one thing; you see a lot of blanks due to spaces in the lines</li>
+<li>Or you can copy each statement to the IDE and press enter</li>
+<li>Thats it!</li>
+</ul>
+<br />
+<p><strong>2. If you would like to have Julia compiler in your system</strong></p>
+<ul>
+<li>In most of the IDE like Atom, VSCode, etc;, we can get julia compiler extension</li>
+<li>Install the extension and run the code</li>
+</ul>
+</div>
