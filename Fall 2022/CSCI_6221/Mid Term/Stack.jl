@@ -20,11 +20,11 @@ function push(stackVar, pushValue, inititalization=nothing)
     end
 
     # Check if the stack is full to its defined max value
-    if stackVar.top == stackVar.maxsize-1
+    if stackVar.top == stackVar.maxsize
         println("Sorry, the stack is full!\n")
     else
-        push!(stackVar.stack, pushValue) # add the value to the stack
-        stackVar.top += 1                # Increment the top counter
+        stackVar.top += 1                        # Increment the top counter
+        insert!(stackVar.stack, stackVar.top, pushValue) # add the value to the stack
         if inititalization === nothing
             println("", pushValue, " is added to the stack")
             println("The updated stack is: ", stackVar.stack)
@@ -34,7 +34,7 @@ end
 
 # This function checks if the stack is empty or not
 function checkEmpty(stackVar)
-    return stackVar.top == -1  
+    return stackVar.top == 0
 end
 
 # This function implements the pop method for removing element to the stack
@@ -45,7 +45,8 @@ function pop(stackVar)
     if checkEmpty(stackVar)
         println("Sorry, the stack is empty!\n")
     else
-        popedValue = pop!(stackVar.stack) # remove the value from the stack
+        popedValue = stackVar.stack[stackVar.top] # remove the value from the stack
+        deleteat!(stackVar.stack, stackVar.top)
         stackVar.top = stackVar.top - 1   # Decrement the top counter
         println("", popedValue, " is removed from the stack")
         println("The updated stack is: ", stackVar.stack)
@@ -80,7 +81,7 @@ end
 # Implementing Stack of Integers
 #---------------------------------------------------------------------
 
-integerStack = JuliaStack(100, -1, [])
+integerStack = JuliaStack(100, 0, [])
 
 # Create a stack of 10 integer values
 for i in 1:10
@@ -101,7 +102,7 @@ top(integerStack)
 # Implementing Stack of Strings
 #---------------------------------------------------------------------
 
-stringStack = JuliaStack(100, -1, [])
+stringStack = JuliaStack(100, 0, [])
 
 # Create a stack of string values
 for i in split("Even in hard times there's a possibility to have fun"," ")
@@ -122,7 +123,7 @@ top(stringStack)
 # Testing exceptional cases
 #---------------------------------------------------------------------
 
-testStack = JuliaStack(100, -1, [])
+testStack = JuliaStack(100, 0, [])
 
 for i in 1:1
     push(testStack,rand(1:100),1)
