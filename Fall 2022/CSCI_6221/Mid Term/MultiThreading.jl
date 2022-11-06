@@ -48,3 +48,6 @@ concurrentTasks = [Task(increment) for i=1:nthreads()]
 @threads for task in concurrentTasks
     schedule(task)
 end
+
+# Run the below code to check the counter
+# fetch(counter)
