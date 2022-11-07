@@ -1,5 +1,5 @@
 #---------------------------------------------------------------------
-# Implemention of Stack in Julia
+# Implemention of Stack in Julia with Concurrency
 # Advance Software Paradigms - Mid Terms Fall 2022
 # Shubham Jadhav
 #---------------------------------------------------------------------
