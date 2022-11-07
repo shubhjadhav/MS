@@ -2,6 +2,8 @@
 # Implemention of Stack in Julia
 # Advance Software Paradigms - Mid Terms Fall 2022
 # Shubham Jadhav
+# To see cleaner code, please see Stack.jl at my GitHub
+# https://github.com/shubhjadhav/MS/tree/main/Fall%202022/CSCI_6221/Mid%20Term
 #---------------------------------------------------------------------
 
 # Creating a data structure to replicate stack behaviour

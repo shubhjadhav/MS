@@ -2,6 +2,8 @@
 # Implemention of Concurrent Programming in Julia
 # Advance Software Paradigms - Mid Terms Fall 2022
 # Shubham Jadhav
+# To see cleaner code, please see MultiThreading.jl at my GitHub
+# https://github.com/shubhjadhav/MS/tree/main/Fall%202022/CSCI_6221/Mid%20Term
 #---------------------------------------------------------------------
 
 # Multithreading in julia needs, Julia to be installed in system as online IDE have
@@ -21,10 +23,8 @@
 # Some systems cannot run Julia with 1000 threads, and when you try to run the command with 1000
 # It will return nothings. For many systems, 250 is the max threads that can be created
 #
-# you can test the implementation with fewers threads, but it wont return 1000 values
-# as the code (at line 42) is dynamically coded to run nthreads times
-# if you want to run the code to get 1000 prints with 4 threads
-# update the code at line 42 from nthreads() to 1000 and start julia as following
+# you can test the implementation with fewers threads
+# if you want to run the code twith 4 threads
 # julia --threads 4
 
 # Importing the modules
@@ -50,7 +50,7 @@ function increment()
 end
 
 # Create tasks
-concurrentTasks = [Task(increment) for i=1:nthreads()]
+concurrentTasks = [Task(increment) for i=1:1000]
 
 # Schedule the tasks
 @threads for task in concurrentTasks

@@ -2,6 +2,8 @@
 # Implemention of Stack in Julia with Concurrency
 # Advance Software Paradigms - Mid Terms Fall 2022
 # Shubham Jadhav
+# To see cleaner code, please see Stack_Concurrency.jl at my GitHub
+# https://github.com/shubhjadhav/MS/tree/main/Fall%202022/CSCI_6221/Mid%20Term
 #---------------------------------------------------------------------
 
 # Multithreading in julia needs, Julia to be installed in system as online IDE have
@@ -18,11 +20,6 @@
 # julia --threads [number of threads] ;in this case it will be 200
 # julia --threads 200
 #
-# Some systems cannot run Julia with 1000 threads, and when you try to run the command with 1000
-# It will return nothings. For many systems, 250 is the max threads that can be created
-#
-# you can test the implementation with fewers threads, but it wont return 1000 values
-# as the code (at line 42) is dynamically coded to run nthreads times
 # if you want to run the code with 4 threads
 # julia --threads 4
 
