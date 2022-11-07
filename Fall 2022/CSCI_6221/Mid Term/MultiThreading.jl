@@ -13,6 +13,9 @@
 # julia --threads [number of threads] ;in this case it will be 1000
 # julia --threads 1000
 #
+# Some systems cannot run Julia with 1000 threads, and when you try to run the command with 1000
+# It will return nothings. For many systems, 250 is the max threads that can be created
+#
 # you can test the implementation with fewers threads, but it wont return 1000 values
 # as the code (at line 42) is dynamically coded to run nthreads times
 # if you want to run the code to get 1000 prints with 4 threads
@@ -48,6 +51,3 @@ concurrentTasks = [Task(increment) for i=1:nthreads()]
 @threads for task in concurrentTasks
     schedule(task)
 end
-
-# Run the below code to check the counter
-# fetch(counter)
