@@ -15,3 +15,4 @@
 
 *   In most of the IDE like Atom, VSCode, etc;, we can get julia compiler extension
 *   Install the extension and run the code
+*   Or nagivate to [Download Julia](https://julialang.org/downloads/) web page and downlad and install as per your systems

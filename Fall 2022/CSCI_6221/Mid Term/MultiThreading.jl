@@ -4,6 +4,11 @@
 # Shubham Jadhav
 #---------------------------------------------------------------------
 
+# Multithreading in julia needs, Julia to be installed in system as online IDE have
+# only 1 threads
+#
+# To install Julia, go to: https://julialang.org/downloads/
+#
 # Note: By default, Julia starts up with a single thread of execution. 
 # The number of threads can either be specified as an integer (--threads=4) 
 # or as auto (--threads=auto), where auto sets the number of threads to the 

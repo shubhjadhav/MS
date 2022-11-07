@@ -4,6 +4,29 @@
 # Shubham Jadhav
 #---------------------------------------------------------------------
 
+# Multithreading in julia needs, Julia to be installed in system as online IDE have
+# only 1 threads
+#
+# To install Julia, go to: https://julialang.org/downloads/
+#
+# Note: By default, Julia starts up with a single thread of execution. 
+# The number of threads can either be specified as an integer (--threads=4) 
+# or as auto (--threads=auto), where auto sets the number of threads to the 
+# number of local CPU threads
+#
+# When starting Julia in terminal enter the following command
+# julia --threads [number of threads] ;in this case it will be 200
+# julia --threads 200
+#
+# Some systems cannot run Julia with 1000 threads, and when you try to run the command with 1000
+# It will return nothings. For many systems, 250 is the max threads that can be created
+#
+# you can test the implementation with fewers threads, but it wont return 1000 values
+# as the code (at line 42) is dynamically coded to run nthreads times
+# if you want to run the code with 4 threads
+# julia --threads 4
+
+
 # Importing the modules
 using Base.Threads
 using Random
