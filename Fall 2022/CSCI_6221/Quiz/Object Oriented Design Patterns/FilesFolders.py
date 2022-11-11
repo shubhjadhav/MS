@@ -6,6 +6,14 @@
 # https://github.com/shubhjadhav/MS/tree/main/Fall%202022/CSCI_6221/Quiz
 #---------------------------------------------------------------------
 
+# Note: In some cases, if the code is copy pasted to an editor.
+# You can see some wierd symbols/colors at indentations due to editor
+# In that case, you can use the github link to access the same file to test the code
+# Quiz/Object Oriented Design Patterns - There are 2 files, a python and a notebook
+#   Either of those can be used to test the implementation
+#
+# To run the file: paste the code in https://www.online-python.com/
+
 # QUESTION
 #
 # Let us suppose you are implementing file system. This file system contains folders and files. 
@@ -127,7 +135,7 @@ current_semester.print_folder_names()
 #   Fall 2022 (folder)
 #       - Miscelleneous (file)
 #       - ASP (folder)
-#           - Preliminaries
+#           - Preliminaries (file)
 #           - Evolution of the Major Programming Languages (file)
 #           - Describing Syntax and Semantics (file)
 #           - Lexical and Syntax Analysis (file)
