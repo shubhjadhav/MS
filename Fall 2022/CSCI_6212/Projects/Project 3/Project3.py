@@ -73,6 +73,12 @@ def calculateTime(eggs, floors, var):
     experimentalTimeList.append(timeTaken)
     theoreticalTimeList.append((var)*math.log2(var)) # Theoretical results derived
 
+
+print("\n\n-------------------------------------------------------------------------------------------------")
+print("-------------------------------For variable eggs and fixed floors--------------------------------")
+print("-------------------------------------------------------------------------------------------------\n\n")
+
+
 # Having number of floors constant
 floors = 1000
 eggs = [2,4,6,8,10]
@@ -86,11 +92,6 @@ def Average(lst):
 
 # Deriving scaling/normalizing constant by mean of theoretical results by experimental results
 normalizingConstant = Average(theoreticalTimeList)/Average(experimentalTimeList)
-
-
-print("\n\n-------------------------------------------------------------------------------------------------")
-print("-------------------------------For variable eggs and fixed floors--------------------------------")
-print("-------------------------------------------------------------------------------------------------\n\n")
 
 print("\nThe number of floors is {}\n".format(floors))
 
@@ -107,6 +108,31 @@ for i,n in enumerate(eggs):
     print("Adjusted Programatically Time taken = {}".format(adjustedexperimentalTimeList[i]))
 
 
+# Plot a line chart to vizualize and compare results from Experimental and Theoretical analysis
+
+# Plot the first line graph for Theoretical results against n values
+plt.plot(nValuesList, theoreticalTimeList, label = "Theoretical Time")
+
+# Plot the second line graph for Experimental results against n values
+plt.plot(nValuesList, adjustedexperimentalTimeList, label = "Experimental Time")
+
+# Assigning title to the chart
+plt.title('Experimental vs Theoretical Time Values')
+
+# Adding grid for easy mappings
+plt.grid()
+
+# Displaying legends for each line for accurate insights
+plt.legend()
+
+# Presenting the line chart
+plt.show()
+
+
+print("\n\n-------------------------------------------------------------------------------------------------")
+print("-------------------------------For variable floors and fixed eggs--------------------------------")
+print("-------------------------------------------------------------------------------------------------\n\n")
+
 
 floors = [10, 100, 500, 1000, 5000]
 eggs = 2
@@ -116,10 +142,6 @@ for num_of_floor in floors:
 
 # Deriving scaling/normalizing constant by mean of theoretical results by experimental results
 normalizingConstant = Average(theoreticalTimeList)/Average(experimentalTimeList)
-
-print("\n\n-------------------------------------------------------------------------------------------------")
-print("-------------------------------For variable floors and fixed eggs--------------------------------")
-print("-------------------------------------------------------------------------------------------------\n\n")
 
 print("\nThe number of eggs is {}\n".format(eggs))
 
@@ -135,3 +157,24 @@ for i,n in enumerate(floors):
     print("Theoretically Time taken = {}".format(theoreticalTimeList[i]))  # Theoretical results derived
     print("Programatically Time taken = {}".format(experimentalTimeList[i]))
     print("Adjusted Programatically Time taken = {}".format(adjustedexperimentalTimeList[i]))
+
+
+# Plot a line chart to vizualize and compare results from Experimental and Theoretical analysis
+
+# Plot the first line graph for Theoretical results against n values
+plt.plot(nValuesList, theoreticalTimeList, label = "Theoretical Time")
+
+# Plot the second line graph for Experimental results against n values
+plt.plot(nValuesList, adjustedexperimentalTimeList, label = "Experimental Time")
+
+# Assigning title to the chart
+plt.title('Experimental vs Theoretical Time Values')
+
+# Adding grid for easy mappings
+plt.grid()
+
+# Displaying legends for each line for accurate insights
+plt.legend()
+
+# Presenting the line chart
+plt.show()
