@@ -3,9 +3,11 @@
 # Import libraries for capturing time and math functions
 import math
 import time
-import matplotlib.pyplot as plt
 import functools
 import sys
+
+number_of_throws_fixed_eggs = []
+number_of_throws_fixed_floors = []
 
 # Function to get minimum number of trials needed in worst
 # case with n eggs and k floors
@@ -52,13 +54,16 @@ theoreticalTimeList = []
 experimentalTimeList = []
 nValuesList = []
 
-def calculateTime(eggs, floors, var):
+def calculateTime(eggs, floors, var, flag):
 
     # Capture the time, when the function's execution has begun
     startTime = time.time()
 
     # The algorithm to find staircase
-    eggDrop(eggs, floors)
+    if flag:
+        number_of_throws_fixed_floors.append(eggDrop(eggs, floors))
+    else:
+        number_of_throws_fixed_eggs.append(eggDrop(eggs, floors))
 
 
     # Capture the time, when the function's execution has ended
@@ -87,7 +92,7 @@ floors = 1000
 eggs = [2,4,6,8,10]
 
 for num_of_egg in eggs:
-    calculateTime(num_of_egg,floors, num_of_egg)
+    calculateTime(num_of_egg,floors, num_of_egg, 0)
 
 # Deriving scaling/normalizing constant by mean of theoretical results by experimental results
 normalizingConstant = Average(theoreticalTimeList)/Average(experimentalTimeList)
@@ -100,32 +105,14 @@ print("\nThe normalizing Constant fixed number of floors is = {}".format(normali
 adjustedexperimentalTimeList = [i * normalizingConstant for i in experimentalTimeList]
 
 # Logs of values of n, Time taken Programatically and Theoretically which is derived in the project submission
+
+
 for i,n in enumerate(eggs):
     print("\nFor number of eggs = {}".format(n))
+    print("Minimum number of throws = {}".format(number_of_throws_fixed_eggs[i]))
     print("Theoretically Time taken = {}".format(theoreticalTimeList[i]))  # Theoretical results derived
     print("Programatically Time taken = {}".format(experimentalTimeList[i]))
     print("Adjusted Programatically Time taken = {}".format(adjustedexperimentalTimeList[i]))
-
-
-# Plot a line chart to vizualize and compare results from Experimental and Theoretical analysis
-
-# Plot the first line graph for Theoretical results against n values
-plt.plot(nValuesList, theoreticalTimeList, label = "Theoretical Time")
-
-# Plot the second line graph for Experimental results against n values
-plt.plot(nValuesList, adjustedexperimentalTimeList, label = "Experimental Time")
-
-# Assigning title to the chart
-plt.title('Experimental vs Theoretical Time Values')
-
-# Adding grid for easy mappings
-plt.grid()
-
-# Displaying legends for each line for accurate insights
-plt.legend()
-
-# Presenting the line chart
-plt.show()
 
 
 print("\n\n-------------------------------------------------------------------------------------------------")
@@ -141,7 +128,7 @@ floors = [10, 100, 500, 1000, 5000]
 eggs = 2
 
 for num_of_floor in floors:
-    calculateTime(eggs,num_of_floor, num_of_floor)
+    calculateTime(eggs,num_of_floor, num_of_floor, 1)
 
 # Deriving scaling/normalizing constant by mean of theoretical results by experimental results
 normalizingConstant = Average(theoreticalTimeList)/Average(experimentalTimeList)
@@ -157,27 +144,7 @@ adjustedexperimentalTimeList = [i * normalizingConstant for i in experimentalTim
 # Logs of values of n, Time taken Programatically and Theoretically which is derived in the project submission
 for i,n in enumerate(floors):
     print("\nFor number of floors = {}".format(n))
+    print("Minimum number of throws = {}".format(number_of_throws_fixed_floors[i]))
     print("Theoretically Time taken = {}".format(theoreticalTimeList[i]))  # Theoretical results derived
     print("Programatically Time taken = {}".format(experimentalTimeList[i]))
     print("Adjusted Programatically Time taken = {}".format(adjustedexperimentalTimeList[i]))
-
-
-# Plot a line chart to vizualize and compare results from Experimental and Theoretical analysis
-
-# Plot the first line graph for Theoretical results against n values
-plt.plot(nValuesList, theoreticalTimeList, label = "Theoretical Time")
-
-# Plot the second line graph for Experimental results against n values
-plt.plot(nValuesList, adjustedexperimentalTimeList, label = "Experimental Time")
-
-# Assigning title to the chart
-plt.title('Experimental vs Theoretical Time Values')
-
-# Adding grid for easy mappings
-plt.grid()
-
-# Displaying legends for each line for accurate insights
-plt.legend()
-
-# Presenting the line chart
-plt.show()
