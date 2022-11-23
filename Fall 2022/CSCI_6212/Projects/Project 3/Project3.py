@@ -101,7 +101,7 @@ adjustedexperimentalTimeList = [i * normalizingConstant for i in experimentalTim
 
 # Logs of values of n, Time taken Programatically and Theoretically which is derived in the project submission
 for i,n in enumerate(eggs):
-    print("\nFor n={}".format(n))
+    print("\nFor number of eggs = {}".format(n))
     print("Theoretically Time taken = {}".format(theoreticalTimeList[i]))  # Theoretical results derived
     print("Programatically Time taken = {}".format(experimentalTimeList[i]))
     print("Adjusted Programatically Time taken = {}".format(adjustedexperimentalTimeList[i]))
@@ -131,7 +131,7 @@ adjustedexperimentalTimeList = [i * normalizingConstant for i in experimentalTim
 
 # Logs of values of n, Time taken Programatically and Theoretically which is derived in the project submission
 for i,n in enumerate(floors):
-    print("\nFor n={}".format(n))
+    print("\nFor number of floors = {}".format(n))
     print("Theoretically Time taken = {}".format(theoreticalTimeList[i]))  # Theoretical results derived
     print("Programatically Time taken = {}".format(experimentalTimeList[i]))
     print("Adjusted Programatically Time taken = {}".format(adjustedexperimentalTimeList[i]))
