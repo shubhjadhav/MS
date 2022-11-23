@@ -7,11 +7,6 @@ import matplotlib.pyplot as plt
 import functools
 import sys
 
-# Initialize list to capture results for theoretical, experimental results and values of n
-theoreticalTimeList = []
-experimentalTimeList = []
-nValuesList = []
-
 # Function to get minimum number of trials needed in worst
 # case with n eggs and k floors
 def eggDrop(m, n):
@@ -52,6 +47,11 @@ def eggDrop(m, n):
 	# eggFloor[n][k] holds the result
     return eggFloor[m][n]
 
+# Initialize list to capture results for theoretical, experimental results and values of n
+theoreticalTimeList = []
+experimentalTimeList = []
+nValuesList = []
+
 def calculateTime(eggs, floors, var):
 
     # Capture the time, when the function's execution has begun
@@ -73,6 +73,9 @@ def calculateTime(eggs, floors, var):
     experimentalTimeList.append(timeTaken)
     theoreticalTimeList.append((var)*math.log2(var)) # Theoretical results derived
 
+# Function to calculate mean of the results which will be used for normalization
+def Average(lst):
+    return functools.reduce(lambda val1, val2: val1 + val2, lst) / len(lst)
 
 print("\n\n-------------------------------------------------------------------------------------------------")
 print("-------------------------------For variable eggs and fixed floors--------------------------------")
@@ -85,10 +88,6 @@ eggs = [2,4,6,8,10]
 
 for num_of_egg in eggs:
     calculateTime(num_of_egg,floors, num_of_egg)
-
-# Function to calculate mean of the results which will be used for normalization
-def Average(lst):
-    return functools.reduce(lambda val1, val2: val1 + val2, lst) / len(lst)
 
 # Deriving scaling/normalizing constant by mean of theoretical results by experimental results
 normalizingConstant = Average(theoreticalTimeList)/Average(experimentalTimeList)
@@ -133,6 +132,10 @@ print("\n\n---------------------------------------------------------------------
 print("-------------------------------For variable floors and fixed eggs--------------------------------")
 print("-------------------------------------------------------------------------------------------------\n\n")
 
+# Initialize list to capture results for theoretical, experimental results and values of n
+theoreticalTimeList = []
+experimentalTimeList = []
+nValuesList = []
 
 floors = [10, 100, 500, 1000, 5000]
 eggs = 2
